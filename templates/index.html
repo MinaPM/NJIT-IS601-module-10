@@ -15,6 +15,7 @@
     within the document. The lang="en" attribute specifies that the language of the document is English,
     which aids in accessibility and SEO (Search Engine Optimization).
 -->
+
 <head>
     <!--
         <head> Section
@@ -23,7 +24,7 @@
         character set, linked resources like CSS and JavaScript files, and other metadata.
         This information is not displayed directly on the web page.
     -->
-    
+
     <meta charset="UTF-8">
     <!--
         <meta> Tag: Character Set
@@ -32,7 +33,7 @@
         UTF-8 is a widely used encoding that supports virtually all characters from all languages,
         ensuring that text is rendered correctly.
     -->
-    
+
     <title>Hello World & Calculator Demo</title>
     <!--
         <title> Tag
@@ -40,7 +41,7 @@
         The <title> element defines the title of the HTML document, which appears in the browser's
         title bar or tab. It is also used by search engines to understand the content of the page.
     -->
-    
+
     <style>
         /*
             <style> Section: CSS Styles
@@ -49,63 +50,199 @@
             the HTML document. CSS is used to style and layout web pages, controlling aspects
             like colors, fonts, spacing, and positioning.
         */
-        
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             /* 
                 Styles for the <body> Element
                 
                 - font-family: Sets the font for the entire page to Arial, sans-serif.
                 - text-align: Centers the text horizontally.
-                - margin-top: Adds a 50-pixel margin at the top of the page for spacing.
+                - margin: Adds a 0-pixel margin at the top of the page for spacing.
+                - min-height: Sets the minimum height of the body to 100vh (viewport height).
+                - padding: Adds a 48px padding at the top and 20px padding on the sides.
+                - background: A linear gradient background.
+                - color: Sets the color of the text to #1f2937.
             */
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 50px;
+            margin: 0;
+            min-height: 100vh;
+            padding: 48px 20px;
+            background: linear-gradient(135deg, #e8f1ff 0%, #f7f9fc 45%, #eef4ff 100%);
+            color: #1f2937;
         }
-        
+
+        h1 {
+            /* 
+                Styles for the <h1> Element
+                
+                - margin: Adds a 0-pixel margin at the top of the heading and 12px at the bottom.
+                - font-size: Sets the font size to 2.6rem.
+                - letter-spacing: Sets the letter spacing to -0.03em.
+                - color: Sets the color to #0f172a.
+            */
+            margin: 0 0 12px;
+            font-size: 2.6rem;
+            letter-spacing: -0.03em;
+            color: #0f172a;
+        }
+
+        h2 {
+            /* 
+                Styles for the <h2> Element
+                
+                - margin: Adds a 0-pixel margin at the top of the heading and 18px at the bottom.
+                - font-size: Sets the font size to 1.5rem.
+                - color: Sets the color to #334155.
+            */
+            margin: 0 0 18px;
+            font-size: 1.5rem;
+            color: #334155;
+        }
+
         .calculator {
             /* 
                 Styles for Elements with the "calculator" Class
                 
-                - margin-top: Adds a 30-pixel margin above the calculator section to separate it
+                - margin: Adds a 32px margin above the calculator section to separate it
                   from other content.
+                - max-width: Sets the maximum width of the calculator to 560px.
+                - padding: Adds a 28px padding on the top and 24px on the sides.
+                - background: A rgba background.
+                - border: Sets the border to rgba(148, 163, 184, 0.25).
+                - border-radius: Sets the border radius to 18px.
+                - box-shadow: Adds a 0 18px 50px rgba(15, 23, 42, 0.10).
+                - backdrop-filter: Adds a blur effect.
             */
-            margin-top: 30px;
+            margin: 32px auto 0;
+            max-width: 560px;
+            padding: 28px 24px;
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            border-radius: 18px;
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
+            backdrop-filter: blur(8px);
         }
-        
+
         input {
             /* 
                 Styles for <input> Elements
                 
-                - margin: Adds a 5-pixel margin around input fields for spacing.
-                - padding: Adds a 5-pixel padding inside input fields for better readability.
+                - width: Sets the width to min(220px, 100%) to ensure it fits within the container.
+                - margin: Adds a 8px margin around input fields for spacing.
+                - padding: Adds a 12px padding inside input fields for better readability.
+                - border: Sets the border to #cbd5e1.
+                - border-radius: Sets the border radius to 10px.
+                - background: Sets the background to #fff.
+                - font-size: Sets the font size to 1rem.
+                - outline: Sets the outline to none.
+                - transition: Sets the transition for border-color, box-shadow, and transform.
             */
-            margin: 5px;
-            padding: 5px;
+            width: min(220px, 100%);
+            margin: 8px;
+            padding: 12px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            background: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
         }
-        
+
+        input:focus {
+            /* 
+                Styles for <input> Elements when focused
+                
+                - border-color: Sets the border color to #4f46e5.
+                - box-shadow: Adds a 0 0 0 4px rgba(79, 70, 229, 0.14).
+                - transform: Translates the input field vertically by -1px.
+            */
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.14);
+            transform: translateY(-1px);
+        }
+
         button {
             /* 
                 Styles for <button> Elements
                 
-                - padding: Adds 5 pixels of vertical padding and 10 pixels of horizontal padding
+                - margin: Adds a 8px margin on the left and 6px on the right.
+                - padding: Adds 10px of vertical padding and 16px of horizontal padding
                   inside buttons to make them larger and more clickable.
+                - border: Sets the border to none.
+                - border-radius: Sets the border radius to 10px.
+                - background: A linear gradient background.
+                - color: Sets the color to #fff.
+                - font-size: Sets the font size to 0.98rem.
+                - font-weight: Sets the font weight to 700.
+                - cursor: Sets the cursor to pointer.
+                - box-shadow: Adds a 0 10px 20px rgba(37, 99, 235, 0.22).
+                - transition: Sets the transition for transform, box-shadow, and filter.
             */
-            padding: 5px 10px;
+            margin: 8px 6px;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #4f46e5, #2563eb);
+            color: #fff;
+            font-size: 0.98rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.22);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
         }
-        
+
+        button:hover {
+            /* 
+                Styles for <button> Elements when hovered
+                
+                - transform: Translates the button vertically by -2px.
+                - box-shadow: Adds a 0 14px 24px rgba(37, 99, 235, 0.28).
+                - filter: Increases the brightness by 1.03.
+            */
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px rgba(37, 99, 235, 0.28);
+            filter: brightness(1.03);
+        }
+
+        button:active {
+            /* 
+                Styles for <button> Elements when clicked
+                
+                - transform: Translates the button vertically by 0px.
+            */
+            transform: translateY(0);
+        }
+
         .result {
             /* 
                 Styles for Elements with the "result" Class
                 
-                - margin-top: Adds a 10-pixel margin above the result display area.
+                - margin-top: Adds a 18-pixel margin above the result display area.
+                - min-height: Sets the minimum height of the result to 28px.
+                - padding: Adds a 12px padding on the top and 14px on the sides.
+                - border-radius: Sets the border radius to 12px.
+                - background: Sets the background to #f8fafc.
+                - border: Sets the border to #e2e8f0.
                 - font-weight: Makes the text bold to emphasize the result.
+                - color: Sets the color to #0f172a.
             */
-            margin-top: 10px;
+            margin-top: 18px;
+            min-height: 28px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             font-weight: bold;
+            color: #0f172a;
         }
     </style>
 </head>
+
 <body>
     <!--
         <body> Section
@@ -114,7 +251,7 @@
         links, buttons, and other media. Everything within the <body> tag is rendered on the
         web page and visible to users.
     -->
-    
+
     <h1>Hello World</h1>
     <!--
         <h1> Tag: Heading
@@ -122,7 +259,7 @@
         The <h1> element represents the most important heading on the page. It is typically used
         for the main title or headline. Search engines give significant weight to <h1> tags for SEO.
     -->
-    
+
     <div class="calculator">
         <!--
             <div> Element with "calculator" Class
@@ -131,7 +268,7 @@
             attribute assigns the "calculator" class to this <div>, allowing it to be styled using CSS.
             This section contains the calculator interface, including input fields and buttons.
         -->
-        
+
         <h2>Calculator</h2>
         <!--
             <h2> Tag: Subheading
@@ -139,7 +276,7 @@
             The <h2> element represents a secondary heading, subordinate to <h1>. It introduces the
             calculator section of the page.
         -->
-        
+
         <input type="number" id="a" placeholder="First number">
         <!--
             <input> Element: First Number Input
@@ -148,7 +285,7 @@
             - id="a": Assigns a unique identifier "a" to this input, allowing it to be accessed via JavaScript.
             - placeholder="First number": Displays the text "First number" inside the input field as a hint to the user.
         -->
-        
+
         <input type="number" id="b" placeholder="Second number"><br>
         <!--
             <input> Element: Second Number Input
@@ -161,7 +298,7 @@
             
             Inserts a line break after the second input field, moving subsequent elements to the next line.
         -->
-        
+
         <button onclick="calculate('add')">Add</button>
         <!--
             <button> Element: Add Button
@@ -170,7 +307,7 @@
               with the argument 'add' when the button is clicked.
             - "Add": The text displayed on the button.
         -->
-        
+
         <button onclick="calculate('subtract')">Subtract</button>
         <!--
             <button> Element: Subtract Button
@@ -179,7 +316,7 @@
               with the argument 'subtract' when the button is clicked.
             - "Subtract": The text displayed on the button.
         -->
-        
+
         <button onclick="calculate('multiply')">Multiply</button>
         <!--
             <button> Element: Multiply Button
@@ -188,7 +325,7 @@
               with the argument 'multiply' when the button is clicked.
             - "Multiply": The text displayed on the button.
         -->
-        
+
         <button onclick="calculate('divide')">Divide</button>
         <!--
             <button> Element: Divide Button
@@ -197,7 +334,7 @@
               with the argument 'divide' when the button is clicked.
             - "Divide": The text displayed on the button.
         -->
-        
+
         <div class="result" id="result"></div>
         <!--
             <div> Element: Result Display
@@ -208,7 +345,7 @@
             This <div> is used to display the result of the arithmetic operation or any error messages.
         -->
     </div>
-    
+
     <script>
         /*
             <script> Section: JavaScript
@@ -218,7 +355,7 @@
             In this example, JavaScript is used to handle calculator operations by sending requests to the server
             and updating the page based on the server's response.
         */
-        
+
         async function calculate(operation) {
             /*
                 Function: calculate
@@ -240,16 +377,16 @@
                 7. If the response indicates an error, display the error message.
                 8. Handle any network or unexpected errors by displaying an error message.
             */
-            
+
             // Retrieve the value of the first input field (ID: 'a') and parse it as a float
             const a = parseFloat(document.getElementById('a').value);
-            
+
             // Retrieve the value of the second input field (ID: 'b') and parse it as a float
             const b = parseFloat(document.getElementById('b').value);
-            
+
             // Get the <div> element where the result or error message will be displayed
             const resultElement = document.getElementById('result');
-    
+
             try {
                 /*
                     Sending the POST Request
@@ -270,14 +407,14 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ a: a, b: b })
                 });
-                
+
                 // Await and parse the response as JSON
                 const data = await response.json();
-                
+
                 // Log the response status and data to the browser's console for debugging
                 console.log('Response Status:', response.status);
                 console.log('Response Data:', data);
-                
+
                 if (response.ok) {
                     /*
                         Successful Response Handling
@@ -315,4 +452,5 @@
         }
     </script>
 </body>
+
 </html>
