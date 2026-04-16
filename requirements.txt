@@ -10,10 +10,16 @@ annotated-types==0.7.0
     # via pydantic
 anyio==4.6.2.post1
     # via starlette
+bcrypt==3.2.2
+    # via
+    #   -r requirements.in
+    #   passlib
 certifi==2024.8.30
     # via requests
 cffi==2.0.0
-    # via cryptography
+    # via
+    #   bcrypt
+    #   cryptography
 charset-normalizer==3.4.0
     # via requests
 click==8.1.7
@@ -22,6 +28,8 @@ colorama==0.4.6
     # via
     #   click
     #   pytest
+coverage[toml]==7.13.5
+    # via pytest-cov
 cryptography==46.0.7
     # via -r requirements.in
 dnspython==2.8.0
@@ -55,12 +63,14 @@ markupsafe==3.0.2
     # via jinja2
 packaging==24.2
     # via pytest
-passlib==1.7.4
+passlib[bcrypt]==1.7.4
     # via -r requirements.in
 playwright==1.48.0
     # via -r requirements.in
 pluggy==1.5.0
-    # via pytest
+    # via
+    #   pytest
+    #   pytest-cov
 psycopg2-binary==2.9.11
     # via -r requirements.in
 pyasn1==0.6.3
@@ -88,6 +98,10 @@ pygments==2.20.0
 pyjwt==2.12.1
     # via -r requirements.in
 pytest==9.0.3
+    # via
+    #   -r requirements.in
+    #   pytest-cov
+pytest-cov==7.1.0
     # via -r requirements.in
 python-dateutil==2.9.0.post0
     # via faker
