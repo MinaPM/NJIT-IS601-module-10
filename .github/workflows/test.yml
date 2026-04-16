@@ -99,9 +99,9 @@ jobs:
         with:
           push: true
           tags: |
-           minam1/is601_m09:latest
-           minam1/is601_m09:${{ github.sha }}
+           minam1/is601_m10:latest
+           minam1/is601_m10:${{ github.sha }}
           platforms: linux/amd64,linux/arm64
-          cache-from: type=registry,ref=minam1/is601_m09:cache
+          cache-from: type=registry,ref=minam1/is601_m10:cache
           cache-to: type=inline,mode=max
 
