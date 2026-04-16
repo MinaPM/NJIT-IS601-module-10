@@ -24,10 +24,14 @@ colorama==0.4.6
     #   pytest
 cryptography==46.0.7
     # via -r requirements.in
+dnspython==2.8.0
+    # via email-validator
 ecdsa==0.19.2
     # via
     #   -r requirements.in
     #   python-jose
+email-validator==2.3.0
+    # via pydantic
 faker==33.3.0
     # via -r requirements.in
 fastapi==0.135.3
@@ -41,6 +45,7 @@ h11==0.16.0
 idna==3.10
     # via
     #   anyio
+    #   email-validator
     #   requests
 iniconfig==2.0.0
     # via pytest
@@ -65,7 +70,7 @@ pyasn1==0.6.3
     #   rsa
 pycparser==2.22
     # via cffi
-pydantic==2.13.1
+pydantic[email]==2.13.1
     # via
     #   -r requirements.in
     #   fastapi
